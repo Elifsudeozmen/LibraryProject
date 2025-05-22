@@ -23,8 +23,9 @@ public class Book {
     private LocalDate publishDate;
 
 // tek bir user last modify edebilir
-    @ManyToOne
-    private User lastModifiedBy;
+    //@ManyToOne
+    //private User lastModifiedBy;
+    private String lastModifiedByUsername;
 
 
 //birden fazla kitap aynı categoride olabilir

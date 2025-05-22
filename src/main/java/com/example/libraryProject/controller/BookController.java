@@ -36,7 +36,7 @@ public class BookController {
     public Book createBook(@RequestBody Book book, @AuthenticationPrincipal UserDetails userDetails) {
         categoryRepository.findById(book.getCategory().getId()).ifPresent(book::setCategory);
         User user = userRepository.findByUsername(userDetails.getUsername()).orElseThrow();
-        book.setLastModifiedBy(user);
+        book.setLastModifiedByUsername(user.getUsername());
         return bookRepository.save(book);
     }
 
@@ -51,7 +51,7 @@ public class BookController {
             book.setPublishDate(bookData.getPublishDate());
             book.setCategory(bookData.getCategory());
             User user = userRepository.findByUsername(userDetails.getUsername()).orElseThrow();
-            book.setLastModifiedBy(user);
+            book.setLastModifiedByUsername(user.getUsername());
             return ResponseEntity.ok(bookRepository.save(book));
 
 
