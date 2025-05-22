@@ -2,7 +2,7 @@ package com.example.libraryProject.controller;
 
 import com.example.libraryProject.model.User;
 import com.example.libraryProject.repository.UserRepository;
-import com.example.libraryProject.security.Jwt;
+import com.example.libraryProject.security.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,7 +24,7 @@ public class UserController {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
 
-    private final Jwt jwt;
+    private final JwtService jwt;
 
 
     //register
