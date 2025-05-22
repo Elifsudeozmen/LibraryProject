@@ -15,7 +15,7 @@ import java.util.function.Function;
 
 public class JwtService {
 
-    public static final String SECRET_KEY ="azxcmoseofssssssssssaowkdwo";
+    public static final String SECRET_KEY ="cokgizli-secret-secret-ultra-secret-key-kimse-bulamaz";
     public static final long EXPIRATION_TIME = 86400000;
 
     public String generateToken(String username){

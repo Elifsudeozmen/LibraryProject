@@ -33,6 +33,9 @@ public class UserController {
         if(userRepository.existsByUsername(user.getUsername())){
             return ResponseEntity.badRequest().body("Kullanıcı adı zaten var");
         }
+
+        //şifre hashleniyo
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return ResponseEntity.ok("Kayıt başarılı");
 
