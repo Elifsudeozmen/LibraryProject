@@ -1,7 +1,9 @@
 package com.example.libraryProject;
 
 import com.example.libraryProject.model.Book;
+import com.example.libraryProject.model.Category;
 import com.example.libraryProject.repository.BookRepository;
+import com.example.libraryProject.repository.CategoryRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +19,9 @@ class LibraryProjectApplicationTests {
 
 	@Autowired
 	private BookRepository bookRepository;
+
+	@Autowired
+	private CategoryRepository categoryRepository;
 
 	@Test
 	void testCreateBook() {
@@ -84,9 +89,18 @@ class LibraryProjectApplicationTests {
 		assertThat(updated.getId()).isEqualTo(bookID);
 		assertThat(updated.getTitle()).isEqualTo("güncellenmiş hali");
 
+	}
 
+	@Test
+	void testCreateCategory(){
+		Category category = Category.builder()
+				.name("deneme")
+				.description("deneme açıklama")
+				.build();
 
+		Category savedCategory = categoryRepository.save(category);
 
+		assertThat(savedCategory.getId()).isNotNull();
 
 
 	}
